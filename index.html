@@ -175,27 +175,58 @@
 <p>  df = pd.read_csv(“./commit.csv”)</p>
 <p>  print(df)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pandas有2个数据结构</span><br><span class="line"></span><br><span class="line">- Series（对应数组结构的数据）</span><br><span class="line">- DataFrame（重点需要关注这个）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">尝试读取json文件</span><br></pre></td></tr></table></figure>
-<p>def Data_Tongji(self):</p>
-<h1 id="self"><a href="#self" class="headerlink" title="self"></a>self</h1><h1 id="df-pd-read-csv-“-commit-csv”"><a href="#df-pd-read-csv-“-commit-csv”" class="headerlink" title="df = pd.read_csv(“./commit.csv”)"></a>df = pd.read_csv(“./commit.csv”)</h1><p>  df = pd.read_json(“./ch3_data.json”)</p>
+<p>def Data_Tongji(self):<br>  (# self</p>
+<p> ( # df = pd.read_csv(“./commit.csv”)<br>  df = pd.read_json(“./ch3_data.json”)</p>
 <p>  print(df)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">读取结果</span><br><span class="line"></span><br><span class="line">          SHA     author_name  ...  stats_additions stats_deletions</span><br><span class="line">0    29b94bf9    xj2501764760  ...                9               4</span><br><span class="line">1    e609f252    xj2501764760  ...            63576               4</span><br><span class="line">2    d6d7011a    xj2501764760  ...              206              16</span><br><span class="line">3    de9adcf4    xj2501764760  ...                2               8</span><br><span class="line">4    936c147c    xj2501764760  ...              281               0</span><br><span class="line">5    dc664fcf    xj2501764760  ...              160               5</span><br><span class="line">6    2dfed0e9    xj2501764760  ...               18               8</span><br><span class="line">7    4f691ed4    xj2501764760  ...                7               4</span><br><span class="line">8    ba9a0490    xj2501764760  ...              188               0</span><br><span class="line">9    031cf880    xj2501764760  ...                0               0</span><br><span class="line">10   f0db03cb    xj2501764760  ...               20               0</span><br><span class="line">11   dece9ac7    xj2501764760  ...               72               0</span><br><span class="line">12   430463a5       ZoomQuiet  ...              247               0</span><br><span class="line">13   acba9aa9       ZoomQuiet  ...              247               0</span><br><span class="line">14   238d160b      wanyialice  ...                0              34</span><br><span class="line">15   8e5e82af      wanyialice  ...             1061              15</span><br><span class="line">16   4c4a6ca8      wanyialice  ...              176               0</span><br><span class="line">17   6f589848       ZoomQuiet  ...              247               0</span><br><span class="line">18   ce274d8a     robotskr101  ...               25               0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">下一步，如果把爬取到数据进行更好的呈现，比如直接以csv保存到本地，可选择需要展示的字段。</span><br><span class="line"></span><br><span class="line">------------</span><br></pre></td></tr></table></figure>
-<p>def Data_Tongji(self):<br>  import codecs</p>
-<h1 id="import-ast"><a href="#import-ast" class="headerlink" title="import ast"></a>import ast</h1><h1 id="self-1"><a href="#self-1" class="headerlink" title="self"></a>self</h1><h1 id="df-pd-read-csv-“-commit-csv”-1"><a href="#df-pd-read-csv-“-commit-csv”-1" class="headerlink" title="df = pd.read_csv(“./commit.csv”)"></a>df = pd.read_csv(“./commit.csv”)</h1><p>  df = pd.read_json(“./ch3_data.json”)</p>
+<p>def Data_Tongji(self):<br>  import codecs<br>  (# import ast<br>  (# self</p>
+<p>  (# df = pd.read_csv(“./commit.csv”)<br>  df = pd.read_json(“./ch3_data.json”)</p>
 <p>  date =  DataFrame(df)<br>  ‘’’输出全部数据’’’</p>
 <p>  print(DataFrame(df,columns = [‘author_name’,’stats_additions’]))<br>  ‘’’输出指定列数据’’’</p>
 <pre><code></code></pre></li>
 </ul>
 <p>爬取结果</p>
-<p>   author_name  stats_additions<br>0      xj2501764760                9<br>1      xj2501764760            63576<br>2      xj2501764760              206<br>3      xj2501764760                2<br>4      xj2501764760              281<br>5      xj2501764760              160<br>6      xj2501764760               18<br>7      xj2501764760                7<br>8      xj2501764760              188<br>9      xj2501764760                0<br>10     xj2501764760               20<br>11     xj2501764760               72<br>12        ZoomQuiet              247<br>13        ZoomQuiet              247<br>14       wanyialice                0<br>15       wanyialice             1061<br>16       wanyialice              176<br>17        ZoomQuiet              247<br>18      robotskr101               25<br>19      robotskr101               26<br>20      robotskr101                0<br>21      robotskr101               16<br>22      robotskr101               48<br>23      robotskr101              104</p>
+<pre><code>author_name         stats_additions</code></pre><p>0      xj2501764760                9<br>1      xj2501764760            63576<br>2      xj2501764760              206<br>3      xj2501764760                2<br>4      xj2501764760              281<br>5      xj2501764760              160<br>6      xj2501764760               18<br>7      xj2501764760                7<br>8      xj2501764760              188<br>9      xj2501764760                0<br>10     xj2501764760               20<br>11     xj2501764760               72<br>12        ZoomQuiet              247<br>13        ZoomQuiet              247<br>14       wanyialice                0<br>15       wanyialice             1061<br>16       wanyialice              176<br>17        ZoomQuiet              247<br>18      robotskr101               25<br>19      robotskr101               26<br>20      robotskr101                0<br>21      robotskr101               16<br>22      robotskr101               48<br>23      robotskr101              104</p>
 <h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><p>使用<a href="https://hexo.io/zh-cn/docs" target="_blank" rel="noopener">hexo</a>和<a href="https://github.com/" target="_blank" rel="noopener">github</a>搭建</p>
 <p>参考<a href="https://sspai.com/post/59504" target="_blank" rel="noopener">搭建网站选择</a> ，<a href="https://sspai.com/post/59337" target="_blank" rel="noopener">hexo安装指导</a></p>
-<h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><p><a href="https://pandas.pydata.org/官方文档，不知道有没有用，先留着备用。" target="_blank" rel="noopener">https://pandas.pydata.org/官方文档，不知道有没有用，先留着备用。</a></p>
+<h2 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h2><p>import gitlab<br>url = ‘<a href="https://gitlab.com&#39;" target="_blank" rel="noopener">https://gitlab.com&#39;</a><br>token =’****’  # 在gitlab 自己的user settings里设置</p>
+<p>(# 登陆<br>gl = gitlab.Gitlab(url, token)</p>
+<p>(# 通过指定id 获取 project 对象<br>project = gl.projects.get(***)</p>
+<p>(# 通过指定project对象获取该项目的所有分支<br>branches = project.branches.list(all = True)<br>number_branch = len(branches)<br>(# print(branches)<br>(# print(f”本项目共有{number_branch}个分支。”)</p>
+<p>(# 获取每个branch的commit个数</p>
+<p>for br_number in range(1, number_branch + 1):<br>    branch = branches[br_number-1]<br>    branch_name = (branch.attributes[‘name’])<br>    commits = project.commits.list(all = True, query_parameters={‘ref_name’: branch_name}) # branch_name 不要加引号<br>    number_commits = len(commits)<br>    print(f”这是第{br_number}个branch,branch的名字是{branch_name}，共有{number_commits}个commit”)</p>
+<pre><code>(# 获得每个commit信息
+for c_number in range(1, number_commits + 1): 
+    commit = commits[c_number - 1]
+    author = (commit.attributes[&apos;committer_name&apos;])
+    time = (commit.attributes[&apos;committed_date&apos;])        
+    (# stat = (commit.attributes[&apos;stats&apos;]) #字典里明明就是stats，这里显示有问题       
+    comments = commit.comments.list(all = True)
+    number_comment = len(comments)
+    print(f&quot;这是第{c_number}个commit&quot;)
+    print(f&quot;作者是：{author}&quot;)
+    print(f&quot;时间是：{time}&quot;)
+    (# print(f&quot;增加了：{stat[&apos;additions&apos;]}&quot;)
+    (# print(f&quot;删除了：{stat[&apos;deletions&apos;]}&quot;)
+    (# print(f&quot;总共修改了：{stat[&apos;total&apos;]}&quot;)
+    (# 获得每个comment信息
+    for comment_number in range(1, number_comment + 1):
+        comment = comments[comment_number - 1]
+        auth = (comment.attributes[&apos;author&apos;])
+        t = (comment.attributes[&apos;created_at&apos;])
+        print(f&quot;这是第{comment_number}个comment&quot;)
+        print(f&quot;comment作者是：{auth[&apos;name&apos;]}&quot;)
+        print(f&quot;comment时间是：{t}&quot;)
+        #print(comment)
+
+print(&apos;-&apos; * 55)</code></pre><h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><p><a href="https://pandas.pydata.org/官方文档，不知道有没有用，先留着备用。" target="_blank" rel="noopener">https://pandas.pydata.org/官方文档，不知道有没有用，先留着备用。</a></p>
 <p><a href="https://blog.csdn.net/cxmscb/article/details/54632492" target="_blank" rel="noopener">https://blog.csdn.net/cxmscb/article/details/54632492</a> pandas的使用</p>
 <p><a href="https://blog.csdn.net/lunseqing5357/article/details/83546483" target="_blank" rel="noopener">https://blog.csdn.net/lunseqing5357/article/details/83546483</a> json数据转换成csv存储</p>
 <h2 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a>changelog</h2><ul>
 <li>Faye init.</li>
-<li>Jun added 数据统计</li>
-<li>Alice added web</li>
+<li>Jun add 数据统计</li>
+<li>Alice add web</li>
+<li>Sirwanglei add gitlab</li>
 </ul>
 
       

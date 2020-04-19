@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JKM2GT.png">
 <meta property="article:published_time" content="2020-04-18T17:48:44.579Z">
-<meta property="article:modified_time" content="2020-04-19T09:09:14.635Z">
+<meta property="article:modified_time" content="2020-04-19T09:12:50.557Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/04/19/JKM2GT.png">
@@ -106,8 +106,32 @@
 <li>看第一个<code>ref_name</code>，类型是<code>string</code>，介绍说的大概是，需要设定branch的名字，在url后面用筛选符号加上筛选的branch name: <code>?ref_name = faye101</code><br>这样就完成了这个参数的筛选。</li>
 <li>下一个是<code>since</code>，类型<code>string</code>，简介是说筛选这个设定时间之后发出的commits，还规定了格式，是我们不熟悉的ISO 8601格式。考虑到同学时差不一样，可以用一个简单的正则表达式（需要<code>import re</code>），将日期精确到日。要用<code>&amp;</code>符号接下一个筛选条件，是and的意思：<code>?ref_name = faye101&amp;since=r&#39;2020-03-12&#39;*</code></li>
 <li>再选一个不一样的类型，<code>with_stats</code>，类型是<code>boolean</code>，所以只能用<code>True</code> 或者<code>False</code>来筛选，再输入<code>string</code>就不对了。再把这个条件加上，根据描述，会额外返给我们关于commit的stats，选出来看看是什么:<code>?ref_name = faye101&amp;since=r&#39;2020-03-12&#39;*&amp;with_stats=True</code></li>
-<li>这样就加了三个筛选条件，此时的url就成了（顺序略有不同，这里可以输入需要的branch_name）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Gitlab API的每个地址都有一页这样的介绍，根据提示，可以自由的筛选数据，并了解筛选出来数据的简介。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 变色</span><br><span class="line"></span><br><span class="line">- 为了防止眼睛累，可以让print的输出变色。参考代码，这样打括号内的author_name就会变色。数字31-36都可。</span><br><span class="line"></span><br><span class="line">print( &quot;作者: \033[33m&#123;&#125;\033[0m &quot;.format(nn[&#39;author_name&#39;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 核武器pandas</span><br><span class="line"></span><br><span class="line">&gt; 本次任务依旧选择了核武器pandas来处理数据。pandas的使用方法主要参考官网的介绍，只用了pandas最基础的命令 。</span><br><span class="line">[10 minutes to pandas](https:&#x2F;&#x2F;pandas.pydata.org&#x2F;docs&#x2F;getting_started&#x2F;10min.html)</span><br><span class="line"></span><br><span class="line">- 半自动统计数据思路</span><br><span class="line">	+ step1: 先将数据抓到本地，储存在json格式；</span><br><span class="line">	+ step2: 再进行数据筛选，json格式转json格式，这里主要希望将dict的key和value是一个element对应一个element，不像step1的数据，存在value是一个dict的情况，增添写程序的不舒适度。</span><br><span class="line">	+ step3: 已经筛选好的json格式数据，通过基础的pandas命令，完成统计。期间还涉及统一不同的名字的问题（通过更改选为index的author_name，这样不同名字的同学可以在groupby的时候合并为标准的branch名字。使数据更准确）。</span><br><span class="line">- 展示设想：通过这组数据，可以在结课的时候写出类似淘宝一年账单那种格式的。你在6py的过程中，一共发了XX个issue了，多少人回复你了，多少人给你点赞了....之类的。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 未解决的问题</span><br><span class="line">### requets的timeout问题</span><br><span class="line"></span><br><span class="line">- 在‘大量’提取数据的过程中，思路是&#96;&#96;&#96;for branch_name in branch_name_list&#96;&#96;&#96;这种形式，那么针对每一个branch_name，request了一次，一次for循环也就request了不到20次。课程的数据量并不大，还是出现了time out的问题。</span><br><span class="line"></span><br><span class="line">### 提取结果不稳定的问题</span><br><span class="line">- 提取commit-comment的时候，利用branchname筛选，就出现了获得的数据不稳定问题。我评价了cantonwong的同一个commit三次，那么筛选的时候我的评论自然应该被筛选出来，可是这个结果时有时无，利用commit的HASH值就是可以的。原因猜测：diff limit。</span><br><span class="line">- 提取结果稳定的SHA提取方法</span><br><span class="line">&#96;&#96;&#96;url_commit_comment &#x3D; &quot;https:&#x2F;&#x2F;gitlab.com&#x2F;api&#x2F;v4&#x2F;projects&#x2F;17180629&#x2F;repository&#x2F;commits&#x2F;&#123;&#125;&#x2F;comments&quot;.format(commit_sha)</span><br></pre></td></tr></table></figure></li>
-<li>提取结果不稳定的branch name提取方法<br><code>url_commit_comment = &quot;https://gitlab.com/api/v4/projects/17180629/repository/commits/{}/comments&quot;.format(branch_name)</code></li>
+<li>这样就加了三个筛选条件，此时的url就成了（顺序略有不同，这里可以输入需要的branch_name）：</li>
+</ul>
+<p>url_commit = “<a href="https://gitlab.com/api/v4/projects/17180629/repository/commits?ref_name={}&amp;with_stats=True&amp;since=r&#39;2020-03-12&#39;*&quot;.format(branch_name)" target="_blank" rel="noopener">https://gitlab.com/api/v4/projects/17180629/repository/commits?ref_name={}&amp;with_stats=True&amp;since=r&#39;2020-03-12&#39;*&quot;.format(branch_name)</a></p>
+<p>Gitlab API的每个地址都有一页这样的介绍，根据提示，可以自由的筛选数据，并了解筛选出来数据的简介。</p>
+<h2 id="变色"><a href="#变色" class="headerlink" title="变色"></a>变色</h2><ul>
+<li>为了防止眼睛累，可以让print的输出变色。参考代码，这样打括号内的author_name就会变色。数字31-36都可。</li>
+</ul>
+<p>print( “作者: \033[33m{}\033[0m “.format(nn[‘author_name’]))</p>
+<h2 id="核武器pandas"><a href="#核武器pandas" class="headerlink" title="核武器pandas"></a>核武器pandas</h2><blockquote>
+<p>本次任务依旧选择了核武器pandas来处理数据。pandas的使用方法主要参考官网的介绍，只用了pandas最基础的命令 。<br><a href="https://pandas.pydata.org/docs/getting_started/10min.html" target="_blank" rel="noopener">10 minutes to pandas</a></p>
+</blockquote>
+<ul>
+<li>半自动统计数据思路<ul>
+<li>step1: 先将数据抓到本地，储存在json格式；</li>
+<li>step2: 再进行数据筛选，json格式转json格式，这里主要希望将dict的key和value是一个element对应一个element，不像step1的数据，存在value是一个dict的情况，增添写程序的不舒适度。</li>
+<li>step3: 已经筛选好的json格式数据，通过基础的pandas命令，完成统计。期间还涉及统一不同的名字的问题（通过更改选为index的author_name，这样不同名字的同学可以在groupby的时候合并为标准的branch名字。使数据更准确）。</li>
+</ul>
+</li>
+<li>展示设想：通过这组数据，可以在结课的时候写出类似淘宝一年账单那种格式的。你在6py的过程中，一共发了XX个issue了，多少人回复你了，多少人给你点赞了….之类的。</li>
+</ul>
+<h2 id="未解决的问题"><a href="#未解决的问题" class="headerlink" title="未解决的问题"></a>未解决的问题</h2><h3 id="requets的timeout问题"><a href="#requets的timeout问题" class="headerlink" title="requets的timeout问题"></a>requets的timeout问题</h3><ul>
+<li>在‘大量’提取数据的过程中，思路是<code>for branch_name in branch_name_list</code>这种形式，那么针对每一个branch_name，request了一次，一次for循环也就request了不到20次。课程的数据量并不大，还是出现了time out的问题。</li>
+</ul>
+<h3 id="提取结果不稳定的问题"><a href="#提取结果不稳定的问题" class="headerlink" title="提取结果不稳定的问题"></a>提取结果不稳定的问题</h3><ul>
+<li>提取commit-comment的时候，利用branchname筛选，就出现了获得的数据不稳定问题。我评价了cantonwong的同一个commit三次，那么筛选的时候我的评论自然应该被筛选出来，可是这个结果时有时无，利用commit的HASH值就是可以的。原因猜测：diff limit。</li>
+<li>提取结果稳定的SHA提取方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 提取结果不稳定的branch name提取方法</span><br><span class="line">&#96;&#96;&#96;url_commit_comment &#x3D; &quot;https:&#x2F;&#x2F;gitlab.com&#x2F;api&#x2F;v4&#x2F;projects&#x2F;17180629&#x2F;repository&#x2F;commits&#x2F;&#123;&#125;&#x2F;comments&quot;.format(branch_name)</span><br></pre></td></tr></table></figure></li>
 <li><a href="https://gitlab.com/101camp/6py/tasks/-/commit/826ca6da5cc6a6bd250110f115d91cff1f1254b3" target="_blank" rel="noopener">为了测试留下的评论</a></li>
 </ul>
 <h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><blockquote>

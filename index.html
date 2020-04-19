@@ -157,6 +157,7 @@
 <h2 id="DIY你的URL"><a href="#DIY你的URL" class="headerlink" title="DIY你的URL"></a>DIY你的URL</h2><blockquote>
 <p>根据gitlab API官网的介绍，设定requests的URL，正确设定必选参数，自由设定可选参数。根据官网截图，知道id是一定required的，所以一定要有。这里面是project的ID，CH2已经用过了。<a href="https://docs.gitlab.com/ee/api/commits.html" target="_blank" rel="noopener">Commits API</a></p>
 </blockquote>
+<p><a href="https://imgchr.com/i/JKM2GT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JKM2GT.png" alt="JKM2GT.png"></a></p>
 <p>id下面就是required为no的可选参数。</p>
 <ul>
 <li><p>看第一个<code>ref_name</code>，类型是<code>string</code>，介绍说的大概是，需要设定branch的名字，在url后面用筛选符号加上筛选的branch name: <code>?ref_name = faye101</code><br>这样就完成了这个参数的筛选。</p>

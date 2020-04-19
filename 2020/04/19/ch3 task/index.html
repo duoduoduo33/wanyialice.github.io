@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ch3 task | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据筛选–简化数据格式   筛选出制作表格需要的信息 以dict形式储存的数据的value都是单一数值，不再是一个dict，方便建立表格。  建立表格–利用筛选后的数据可以方便建立表格  指定author_name为index。 成功建立表格 形成了一个index高度重复，每个issue就是一行（row），每位同学发了多少个issue就有多少行。 下一步根据index也就是作者名，聚合到一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch3 task">
+<meta property="og:url" content="http://wanyialice.github.io/2020/04/19/ch3%20task/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据筛选–简化数据格式   筛选出制作表格需要的信息 以dict形式储存的数据的value都是单一数值，不再是一个dict，方便建立表格。  建立表格–利用筛选后的数据可以方便建立表格  指定author_name为index。 成功建立表格 形成了一个index高度重复，每个issue就是一行（row），每位同学发了多少个issue就有多少行。 下一步根据index也就是作者名，聚合到一">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuDx76.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuOjWF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuXpLR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuO8M9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuXeQH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuX6l4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JuDx76.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/19/Juj1BR.png">
+<meta property="article:published_time" content="2020-04-19T04:01:14.243Z">
+<meta property="article:modified_time" content="2020-04-19T07:22:26.506Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/19/JuDx76.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wanyialice.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ch3 task" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/19/ch3%20task/" class="article-date">
+  <time datetime="2020-04-19T04:01:14.243Z" itemprop="datePublished">2020-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ch3 task
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+
+<p><a href="https://imgchr.com/i/JuDx76" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuDx76.png" alt="6py活跃度统计"></a></p>
+<h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><h4 id="–简化数据格式"><a href="#–简化数据格式" class="headerlink" title="–简化数据格式"></a>–简化数据格式</h4><p><a href="https://imgchr.com/i/JuOjWF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuOjWF.png" alt="筛选数据1"></a></p>
+<p><a href="https://imgchr.com/i/JuXpLR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuXpLR.png" alt="筛选数据2"></a></p>
+<ul>
+<li>筛选出制作表格需要的信息</li>
+<li>以dict形式储存的数据的value都是单一数值，不再是一个dict，方便建立表格。</li>
+</ul>
+<h2 id="建立表格"><a href="#建立表格" class="headerlink" title="建立表格"></a>建立表格</h2><h4 id="–利用筛选后的数据可以方便建立表格"><a href="#–利用筛选后的数据可以方便建立表格" class="headerlink" title="–利用筛选后的数据可以方便建立表格"></a>–利用筛选后的数据可以方便建立表格</h4><p><a href="https://imgchr.com/i/JuO8M9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuO8M9.png" alt="建立表格"></a></p>
+<ul>
+<li>指定author_name为index。</li>
+<li>成功建立表格</li>
+<li>形成了一个index高度重复，每个issue就是一行（row），每位同学发了多少个issue就有多少行。</li>
+<li>下一步根据index也就是作者名，聚合到一起，这里面issue_sum的常数1也用到了，比如说一个人聚合了10次，他就发了10次issue。</li>
+</ul>
+<h2 id="Index聚合"><a href="#Index聚合" class="headerlink" title="Index聚合"></a>Index聚合</h2><h4 id="–groupby-amp-sum"><a href="#–groupby-amp-sum" class="headerlink" title="–groupby&amp;sum"></a>–groupby&amp;sum</h4><p><a href="https://imgchr.com/i/JuXeQH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuXeQH.png" alt="index改名"></a></p>
+<p><a href="https://imgchr.com/i/JuX6l4" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuX6l4.png" alt="统计表格"></a></p>
+<ul>
+<li>把名字不统一的同学尽量改为branch name，利用给index改名就可以完成。</li>
+<li>最终以index聚合，聚合方式是加和（sum），每位同学发的issue的总数也聚合出来了，统计表格制作完成。</li>
+<li>同样的过程完成commit表格，两个表格组合在一起，完成了最终表格。可以将结果保存为csv格式。</li>
+</ul>
+<h2 id="统计表"><a href="#统计表" class="headerlink" title="统计表"></a>统计表</h2><p><a href="https://imgchr.com/i/JuDx76" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/JuDx76.png" alt="6py活跃度统计"></a></p>
+<h2 id="加餐内容"><a href="#加餐内容" class="headerlink" title="加餐内容"></a>加餐内容</h2><p><a href="https://imgchr.com/i/Juj1BR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/19/Juj1BR.png" alt="cc数据"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wanyialice.github.io/2020/04/19/ch3%20task/" data-id="ck96qbh1v0000eezd2yiret40" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/19/ch3%20report/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ch3 report</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/19/ch3%20task/">ch3 task</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/19/ch3%20report/">ch3 report</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

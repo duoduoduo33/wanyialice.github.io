@@ -5,13 +5,17 @@
   
 
   
-  <title>Hexo</title>
+  <title>ch3 report | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://wanyialice.github.io/index.html">
+  <meta name="description" content="DIY你的URLCreate a new post 根据gitlab API官网的介绍，设定requests的URL，正确设定必选参数，自由设定可选参数。根据官网截图，知道id是一定required的，所以一定要有。这里面是project的ID，CH2已经用过了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch3 report">
+<meta property="og:url" content="http://wanyialice.github.io/2020/04/19/ch3%20report/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DIY你的URLCreate a new post 根据gitlab API官网的介绍，设定requests的URL，正确设定必选参数，自由设定可选参数。根据官网截图，知道id是一定required的，所以一定要有。这里面是project的ID，CH2已经用过了。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-18T17:48:44.579Z">
+<meta property="article:modified_time" content="2020-04-19T02:20:48.232Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -62,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ch3 report" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ch3 report" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/19/ch3%20report/" class="article-date">
   <time datetime="2020-04-18T17:48:44.579Z" itemprop="datePublished">2020-04-19</time>
@@ -77,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/19/ch3%20report/">ch3 report</a>
+    <h1 class="article-title" itemprop="name">
+      ch3 report
     </h1>
   
 
@@ -89,11 +91,19 @@
         <h2 id="DIY你的URL"><a href="#DIY你的URL" class="headerlink" title="DIY你的URL"></a>DIY你的URL</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><blockquote>
 <p>根据gitlab API官网的介绍，设定requests的URL，正确设定必选参数，自由设定可选参数。<br>根据官网截图，知道id是一定required的，所以一定要有。这里面是project的ID，CH2已经用过了。</p>
 </blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2020/04/19/ch3%20report/#more">Read More</a>
-          </p>
-        
+<a id="more"></a>
+
+<p><a href="https://docs.gitlab.com/ee/api/commits.html" target="_blank" rel="noopener">Commits API</a></p>
+<p>id下面就是required为no的可选参数。</p>
+<ul>
+<li>看第一个<code>ref_name</code>，类型是<code>string</code>，介绍说的大概是，需要设定branch的名字，在url后面用筛选符号加上筛选的branch name: <code>?ref_name = faye101</code><br>这样就完成了这个参数的筛选。</li>
+<li>下一个是<code>since</code>，类型<code>string</code>，简介是说筛选这个设定时间之后发出的commits，还规定了格式，是我们不熟悉的ISO 8601格式。考虑到同学时差不一样，可以用一个简单的正则表达式（需要<code>import re</code>），将日期精确到日。要用<code>&amp;</code>符号接下一个筛选条件，是and的意思：<code>?ref_name = faye101&amp;since=r&#39;2020-03-12&#39;*</code></li>
+<li>再选一个不一样的类型，<code>with_stats</code>，类型是<code>boolean</code>，所以只能用<code>True</code> 或者<code>False</code>来筛选，再输入<code>string</code>就不对了。再把这个条件加上，根据描述，会额外返给我们关于commit的stats，选出来看看是什么:<code>?ref_name = faye101&amp;since=r&#39;2020-03-12&#39;*&amp;with_stats=True</code></li>
+<li>这样就加了三个筛选条件，此时的url就成了（顺序略有不同，这里可以输入需要的branch_name）：<br><code>url_commit = &quot;https://gitlab.com/api/v4/projects/17180629/repository/commits?ref_name={}&amp;with_stats=True&amp;since=r&#39;2020-03-12&#39;*&quot;.format(branch_name)</code></li>
+</ul>
+<p>Gitlab API的每个地址都有一页这样的介绍，根据提示，可以自由的筛选数据，并了解筛选出来数据的简介。</p>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -103,11 +113,9 @@
     </footer>
   </div>
   
-</article>
-
-
+    
   
-
+</article>
 
 </section>
         
